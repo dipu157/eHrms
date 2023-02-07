@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: url('https://westfieldcc.files.wordpress.com/2011/10/simple-blur-ipad-background.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+.wrapper {
+  margin: 100px auto;
+  width: 90%;
+  font-family: sans-serif;
+  color: #98927C;
+  font-size: 14px;
+  line-height: 24px;
+  max-width: 800px;
+  min-width: 340px;
+  overflow: hidden;
+}
+.tabs li {
+  list-style: none;
+  float: left;
+  width: 20%;
+}
+.tabs a {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+  text-transform: uppercase;
+  color: #fff;
+  height: 70px;
+  line-height: 90px;
+  background: linear-gradient(165deg, transparent 29%, #98927C 30%);
+}
+.tabs a:hover,
+.tabs a.active {
+  background: linear-gradient(165deg, transparent 29%, #F2EEE2 30%);
+  color: #98927C;
+}
+.tabs a:before {
+  content: '';
+  position: absolute;
+  z-index: 11;
+  left: 100%;
+  top: -100%;
+  height: 70px;
+  line-height: 90px;
+  width: 0;
+  border-bottom: 70px solid rgba(0, 0, 0, 0.1);
+  border-right: 7px solid transparent;
+}
+.tabs a.active:before {
+  content: '';
+  position: absolute;
+  z-index: 11;
+  left: 100%;
+  top: -100%;
+  height: 70px;
+  line-height: 90px;
+  width: 0;
+  border-bottom: 70px solid rgba(0, 0, 0, 0.2);
+  border-right: 20px solid transparent;
+}
+.tabgroup {
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+.tabgroup div {
+  /*padding: 10px;*/
+  background: #F2EEE2;
+  /*box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);*/
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*Tabs Test*/
+
+.nav-tabs {
+  margin-bottom: 1rem;
+}
+
+
+#exTab1 .tab-content {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+#exTab2 h3 {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+/* remove border radius for the tab */
+
+#exTab1 .nav-pills > li > a {
+  border-radius: 0;
+}
+
+/* change border radius for the tab , apply corners on top*/
+
+#exTab3 .nav-pills > li > a {
+  border-radius: 4px 4px 0 0 ;
+}
+
+#exTab3 .tab-content {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}

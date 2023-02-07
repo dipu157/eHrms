@@ -1,0 +1,32 @@
+ sudo php artisan clear-compiled
+ sudo composer dump-autoload
+ sudo php artisan optimize
+
+ to get secondary database connection
+
+ php artisan config:clear
+
+ php artisan migrate:rollback --step=1
+
+ need to install curl for tcpdf
+
+ sudo apt-get install php-curl
+
+
+ SELECT @cCommand := GROUP_CONCAT( COLUMN_NAME ORDER BY column_name SEPARATOR ',\n') names FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'hresource' AND TABLE_NAME = 'emp_personals'
+
+
+ kill address is use pid
+
+ sudo netstat -plnt
+
+ kill -9 (PID)
+
+
+ $("button").click(function () {
+     var inputValue = $(this).closest("tr").find("input[type=text]").val();
+     var selectValuse = $(this).closest("tr").find("[name='select_job']").val();
+     var index = $(this).closest("tr").index();
+ });
+
+

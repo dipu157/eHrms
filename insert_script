@@ -1,0 +1,22 @@
+insert into duty_locations select * from hr_prod.duty_locations
+
+insert into titles select * from hr_prod.titles;
+insert into designations select * from hr_prod.designations;
+
+
+insert into emp_personals select * from hr_prod.emp_personals;
+insert into emp_professionals select * from hr_prod.emp_professionals;
+insert into emp_posting_histories select * from hr_prod.emp_posting_histories;
+insert into emp_educationals select * from hr_prod.emp_educationals;
+insert into emp_dependants select * from hr_prod.emp_dependants;
+
+insert into punch_details select * from hr_prod.punch_details;
+
+
+SELECT `employee_id`, DATE_FORMAT(`attendance_datetime`,'%Y-%m-%d') FROM `punch_details`;
+
+
+
+
+
+

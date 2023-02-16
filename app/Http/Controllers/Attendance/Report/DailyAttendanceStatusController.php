@@ -54,7 +54,7 @@ class DailyAttendanceStatusController extends Controller
                 DB::raw('sum(case when attend_status = "P" then 1 else 0 end) as present'),
                 DB::raw('sum(case when attend_status = "P" and shift_id = "1" then 1 else 0 end) as No_Roaster_present'),
                 DB::raw('sum(case when attend_status = "P" and shift_id in("3","6","7","10","13","17","22","23","24","25","28","33","35","36","38") then 1 else 0 end) as Morning'),
-                DB::raw('sum(case when attend_status = "P" and shift_id in("4","8","12","14","15","21","27","30","31") then 1 else 0 end) as Evening'),
+                DB::raw('sum(case when attend_status = "P" and shift_id in("4","8","12","14","15","21","27","30","31","39") then 1 else 0 end) as Evening'),
                 DB::raw('sum(case when attend_status = "P" and shift_id in("5","9","11","16","26","29","32","34","37") then 1 else 0 end) as Night'),
                 DB::raw('sum(case when attend_status = "P" and shift_id ="2" then 1 else 0 end) as General'),
                 DB::raw('sum(case when leave_flag = false and shift_id = "1" and attend_status = "A" then 1 else 0 end) as offday'),
@@ -62,8 +62,8 @@ class DailyAttendanceStatusController extends Controller
                 DB::raw('sum(case when holiday_flag = true and attend_status = "A" then 1 else 0 end) as holiday'),
                 DB::raw('sum(case when attend_status = "R" then 1 else 0 end) as next_roster'),
                 DB::raw('sum(case when attend_status = "A" and leave_flag = false and  holiday_flag = false  and shift_id != "1" then 1 else 0 end) as absent'),
-DB::raw('sum(case when attend_status = "A" and shift_id in("5","9","11","16","26","29","32","34","37") then 1 else 0 end) as NightAb')
-)
+                DB::raw('sum(case when attend_status = "A" and shift_id in("5","9","11","16","26","29","32","34","37") then 1 else 0 end) as NightAb')
+            )
           
             ->with('department')
             ->get();

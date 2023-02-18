@@ -30,6 +30,8 @@
                         <form method="get" action="{{ route('attendance/dailyAttendanceStatusIndex') }}" >
                             @csrf
 
+                            <label class="col-md-12 col-form-label mb-3">Daily Attendance Details Report </label>
+
                             <div class="form-group row">
                                 <label for="report_date" class="col-md-4 col-form-label text-md-right">Report Date</label>
 
@@ -62,7 +64,7 @@
                             @csrf
 
                             <div class="form-group row">
-                                <label for="report_date" class="col-md-12 col-form-label">Not Attendate Employee</label>
+                                <label for="report_date" class="col-md-12 col-form-label mb-3">Statement of Absent Employee</label>
 
                                 <div class="col-md-6">
                                     {!! Form::select('status_id',['1'=>'ALL','2'=>'Informed Absent','3'=>'UnauthoriseAbsent','4'=>'In Leave','7'=>'Maternity','8'=>'Quarentine','5'=>'Resigned','6'=>'Suspended'],null,['id'=>'status_id', 'class'=>'form-control']) !!}

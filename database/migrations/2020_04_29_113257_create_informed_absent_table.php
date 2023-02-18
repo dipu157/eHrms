@@ -19,6 +19,7 @@ class CreateInformedAbsentTable extends Migration
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('RESTRICT');
             $table->integer('employee_id')->unsigned();
             $table->foreign('employee_id')->references('employee_id')->on('emp_professionals')->onDelete('RESTRICT');
+            $table->integer('status_id')->unsigned();
             $table->year('absent_year');
             $table->date('from_date');
             $table->date('to_date');

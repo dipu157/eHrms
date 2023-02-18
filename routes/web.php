@@ -482,7 +482,7 @@ Route::group(['prefix' => 'attendance', 'namespace' => 'Attendance', 'middleware
     Route::post('deleteOnDuty',['as'=>'attendance/deleteOnDuty','uses' => 'OnDutyEmployeeController@destroy']);
 
     //Informed Absent Employee
-    Route::get('informedAbsentIndex',['as'=>'attendance/informedAbsentIndex','uses' => 'InformedAbsentController@index']);
+    Route::get('absentResigndIndex',['as'=>'attendance/absentResigndIndex','uses' => 'InformedAbsentController@index']);
 
     Route::post('informedAbsentSave',['as'=>'attendance/informedAbsentSave','uses' => 'InformedAbsentController@create']);    
 

@@ -14,6 +14,7 @@ class InformedAbsent extends Model
     protected $fillable = [
         'company_id',
         'employee_id',
+        'status_id',
         'absent_year',
         'from_date',
         'to_date',

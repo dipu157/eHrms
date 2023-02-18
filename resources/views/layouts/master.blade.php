@@ -204,7 +204,7 @@
                             <li><a href="{!! route('attendance/manualIndex') !!}">Manual Attendance</a></li>
                             <li><a href="{!! route('attendance/updateIndex') !!}">Modify Attendance</a></li>
                             <li><a href="{!! route('attendance/onDutyIndex') !!}">Employee On Duty</a></li>
-                            <li><a href="{!! route('attendance/informedAbsentIndex') !!}">Informed Absent</a></li>
+                            <li><a href="{!! route('attendance/absentResigndIndex') !!}">Absent/Resigned Setup</a></li>
 
                             <li><a href="#attReportDropdown" aria-expanded="false" data-toggle="collapse">Report</a></li>
                             <ul id="attReportDropdown" class="collapse list-unstyled " style="padding-left: 20px">

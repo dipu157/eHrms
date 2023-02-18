@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('pagetitle')
-    <h2 class="no-margin-bottom">Informed Absent Setup</h2>
+    <h2 class="no-margin-bottom">Absent/Resigned Setup</h2>
     <h2 class="no-margin-bottom" id="emp_details" style="color: red"></h2>
 @endsection
 @section('content')
@@ -35,9 +35,15 @@
 
                             <input type="hidden" name="to_emp_id" id="to_emp_id" class="form-control">
 
+                            <div class="form-group row">
+                                <label for="absent_type" class="col-md-4 col-form-label text-md-right">Status</label>
+                                <div class="col-sm-8">
+                                    {!! Form::select('status_id',['1'=>'Informed Absent','2'=>'Unauthorized Absent','3'=>'Resign',],null,['id'=>'status_id', 'class'=>'form-control']) !!}
+                                </div>
+                            </div>
 
                             <div class="form-group row">
-                                <label for="emp_id" class="col-sm-4 col-form-label text-md-right">ID</label>
+                                <label for="emp_id" class="col-sm-4 col-form-label text-md-right">Employee ID</label>
                                 <div class="col-sm-8">
                                     <div class="input-group mb-3">
                                         <input type="text" name="emp_id" id="emp_id" class="form-control typeahead" required autocomplete="off">
@@ -46,7 +52,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="from_date" class="col-sm-4 col-form-label text-md-right">Absent From</label>
+                                <label for="from_date" class="col-sm-4 col-form-label text-md-right">Start From</label>
                                 <div class="col-sm-8">
                                     <div class="input-group mb-3">
                                         <input type="text" name="from_date" id="from_date" value="{!! \Carbon\Carbon::now()->format('d-m-Y') !!}" class="form-control" required readonly>
@@ -55,7 +61,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="to_date" class="col-sm-4 col-form-label text-md-right">Absent To</label>
+                                <label for="to_date" class="col-sm-4 col-form-label text-md-right">End To</label>
                                 <div class="col-sm-8">
                                     <div class="input-group mb-3">
                                         <input type="text" name="to_date" id="to_date" value="{!! \Carbon\Carbon::now()->format('d-m-Y') !!}" class="form-control" required readonly>
@@ -104,15 +110,17 @@
                             <thead>
                             <tr>
                                 <th width="150px" style="font-weight: bold">Name</th>
+                                <th width="150px" style="font-weight: bold">Status</th>
                                 <th width="200px" style="font-weight: bold">Date</th>
                                 <th width="150px" style="font-weight: bold">Reason</th>
                                 <th style="font-weight: bold">Action</th>
                             </tr>
                             </thead>
-                            <tbody>
+                            <tbody> 
                             @foreach($data as $i=>$row)
                                 <tr>
                                     <td>{!! $row->professional->personal->full_name !!} <br/>{!! $row->professional->employee_id !!}</td>
+                                    <td>{!! $row->status_id == 1 ? 'Informed Absent' : ($row->status_id == 2 ? "Unauthorized Absent" : "Resigned") !!} </td>
                                     <td>{!! \Carbon\Carbon::parse($row->from_date)->format('d-m-Y') !!} To {!! \Carbon\Carbon::parse($row->to_date)->format('d-m-Y') !!}</td>
                                     <td>{!! $row->reason !!}</td>
                                     <td><button type="submit" id="absent-data-{!! $i !!}" value="{!! $row->id !!}" class="btn btn-absent-delete btn-danger btn-sm"><i class="fa fa-trash"></i></button></td>

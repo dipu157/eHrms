@@ -55,6 +55,7 @@ class InformedAbsentController extends Controller
 
     public function create(Request $request)
     {
+        
 
         if(check_privilege(42,2) == false) //2=show Division  1=view
         {
@@ -66,11 +67,14 @@ class InformedAbsentController extends Controller
         $request['user_id'] = $this->user_id;
         $request['status'] = true;
         $request['employee_id'] = $request['to_emp_id'];
+        $request['status_id'] = $request['status_id'];
         $request['from_date'] = Carbon::createFromFormat('d-m-Y',$request['from_date'])->format('Y-m-d');
         $request['to_date'] = Carbon::createFromFormat('d-m-Y',$request['to_date'])->format('Y-m-d');
         $request['nods'] = dateDifference($request['from_date'],$request['to_date']) + 1;
         $today = Carbon::now()->format('Y-m-d');
         $request['absent_year'] = Carbon::createFromFormat('Y-m-d',$request['from_date'])->format('Y');
+
+        //dd($request['status_id']);
 
 
         DB::beginTransaction();
